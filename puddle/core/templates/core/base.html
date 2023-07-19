@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head>
+<head class="px-6 py-6 flex justify-between bg-pink-500">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -25,11 +25,23 @@
     </div>
 
 
-    <footer class="px-6 py-6 flex justify-between bg-yellow-800">
+    <footer class="px-6 py-6 flex justify-between bg-pink-500">
         <div class="w-2/3 pr-10">
             <h3 class="mb-5 fornt-semibold text-grey-400">About</h3>
             <p class="text-tg text-grey-500">some sample text</p>
         </div>
+        <div class="w-1/3">
+            <h3 class="mb-5 fornt-semibold text-grey-400">menu</h3>
+            <ul class="space-y-2">
+            <li><a href="#" class="text-lg text-teal-500 hover:text-teal-700">About</a></li>
+            <li><a href="{% url 'contact' %}" class="text-lg text-teal-500 hover:text-teal-700">Contact</a></li>
+            <li><a href="#" class="text-lg text-teal-500 hover:text-teal-700">Privacy policy</a></li>
+            <li><a href="#" class="text-lg text-teal-500 hover:text-teal-700">Terms of use</a></li>
+
+        </ul>
+    </div>
+        
+
     </footer>
 
 
