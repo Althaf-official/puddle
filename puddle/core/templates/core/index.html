@@ -2,4 +2,22 @@
 
 {% block title %}Welcome{% endblock %}
 
-{% block content %}<h1>The fornt Page </h1>{% endblock %}
+{% block content %}<div class="mb-6 px-6 py-12 bg-grey-100">
+    <h2 class="mb-12 text-2xl text-center">Newest Items</h2>
+
+    <div class="grid grid-cols-3 gap-3">
+        {% for item in items %}
+        <div>
+            <a href="#">
+                <div>
+                    <img src="{{ item.image.url }}" class="rounded-t-xl">
+                </div>
+                <div class="p-6 bg-white rounded-b-xl">
+                    <h2 class="text-2xl">{{ item.title}}</h2>
+                    <p class="text-grey-500">Price:{{ item.price}}</p>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>{% endblock %}
