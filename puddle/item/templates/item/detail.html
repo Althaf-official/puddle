@@ -10,9 +10,20 @@
     
     <div class="col-span-2 p-6 bg-grey-100 rounded-xl">
         <h1 class="mb-6 text-3xl">{{ item.name }}</h1>
-        <h6 class="mb-1 text-1xl">{{ item.description }}</h6>
-        <p class="text-grey-500"><strong>Price: </strong>{{ item.price }}</p>
-        <p class="text-grey-500"><strong>Seller: </strong>{{ item.created_by.username }}</p>
+        
+        <p class="text-red-500"><strong>Price: </strong>{{ item.price }}</p>
+        <p class="text-red-500"><strong>Seller: </strong>{{ item.created_by.username }}</p>
+        <p class="text-grey-700">
+
+        {% if item.description %}
+            <strong class="text-red-500">Description</strong>
+            {{ item.description}}
+        </p>
+        {% endif %}
+
+        <a href="#" class="inline-block mt-6 px-6 py-3 text-lg fornt-semibold bg-teal-500 text-white rounded-xl hover:bg-teal-800 ">Contact Seller</a>
+
+
     </div>
 
 
