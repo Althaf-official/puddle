@@ -34,9 +34,9 @@ def signup(request):
     return render(request, 'core/signup.html',{
         'form':form
     })
-"""The code defines a function called signup, which appears to handle the sign-up functionality for a web application.
-The function takes a parameter called request. This parameter represents an HTTP request made to the server, usually when a user submits a form on a web page.The function checks if the HTTP request method is "POST". 
-In web development, "POST" is commonly used when submitting forms that create or update data on the server.
+""" #!The code defines a function called signup, which appears to handle the sign-up functionality for a web application.
+#*The function takes a parameter called request. This parameter represents an HTTP request made to the server, usually when a user submits a form on a web page.The function checks if the HTTP request method is "POST". 
+#?In web development, "POST" is commonly used when submitting forms that create or update data on the server.
 If the request method is "POST", it means the user has submitted the sign-up form, and the function proceeds to process the form data.
 Inside the "POST" block, the code creates an instance of a form called SignupForm and passes the data from the HTTP request (request.POST) to the form.
 The is_valid() method is called on the form. This method checks if the data submitted in the form is valid and matches the form's defined validation rules (e.g., required fields, valid email format, etc.).

@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 
+# The `LoginForm` class is a subclass of `AuthenticationForm` that defines fields for username and
+# password with specific widget attributes.
 
 class LoginForm(AuthenticationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={
@@ -25,6 +27,7 @@ class SignupForm(UserCreationForm):
         'placeholder': 'Enter Your Username',
         'class': 'w-full py-4 px-6 rounded-xl'
     }))
+    
 
     email = forms.CharField(widget=forms.EmailInput(attrs={
         'placeholder': 'Enter Your email',
