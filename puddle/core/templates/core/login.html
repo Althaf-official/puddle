@@ -1,0 +1,52 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="w-1/2 my-6 p-6 mx-auto bg-grey-100 rounded-t-xl">
+    <h1 class="mb-6 text-3xl">Log In</h1>
+
+    <form method="post" action=".">
+        {% csrf_token %}
+        
+
+        <div class="mb-3">
+            <label class="inline-block mb-2">Username </label>
+            {{ form.username }}
+        </div>
+        
+        <div class="mb-3">
+            <label class="inline-block mb-2">Password </label>
+            {{ form.password }}
+        </div>
+        
+
+        {% if form.errors or form.non_field_errors %}
+        <div class="mb-3 p-6 bg-red-500 rounded-xl hover:bg-teal-800">
+            {% for field in form %}
+               {{ field.errors }}
+            {% endfor %}
+
+            {{ form.non_field_errors }}
+
+        </div>
+
+        {% endif %}
+    
+
+        <button class="py-4 text-lg bg-teal-500 hover:bg-teal-700 rounded-xl text-white">Submit</button>
+    </form>
+
+
+</div>
+
+{% endblock %}
+
+
+#"""
+this code block checks if there are any errors in the form or non-field errors. 
+If there are any, it will display a styled error message <div> with individual error messages for each form field (if any), 
+followed by any non-field errors. 
+This code helps to provide feedback to users when they submit a form with invalid data.
+
+"""
