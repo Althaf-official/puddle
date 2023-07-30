@@ -25,6 +25,14 @@ SECRET_KEY = 'django-insecure-0tkyhxu_-6an3q0eh$wh9%-^%(c1-3jqf5(mb7qt+a#ppbx77s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
+# The `LOGIN_URL`, `LOGIN_REDIRECT_URL`, and `LOGOUT_REDIRECT_URL` settings in Django are used for
+# managing user authentication and redirection.
+LOGIN_URL = "/login/"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
+
+
 ALLOWED_HOSTS = []
 
 
