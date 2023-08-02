@@ -17,4 +17,7 @@ def detail(request, pk):#pk for primary key
 def new(request):
     form = NewItemForm()
 
-    return render(request, "item/form.html", {"form": form})
+    return render(request, "item/form.html", {
+        "form": form,
+        'title': 'New Item',
+        })
