@@ -15,6 +15,17 @@ def detail(request, pk):#pk for primary key
 
 @login_required
 def new(request):
+
+    #!handles the processing of form data submitted via a POST request,associates the item with the currently logged-in user, and saves the item to the database.
+    if request.method == "POST":
+        form = NewItemForm(request.POST,request.FILES)
+
+        if form.is_valid():
+            item=form.save(commit=False)
+            item.created_by =request.user
+            item.save()
+
+
     form = NewItemForm()
 
     return render(request, "item/form.html", {
