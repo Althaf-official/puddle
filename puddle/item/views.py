@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
 
 from .forms import NewItemForm, EditItemForm
@@ -8,10 +9,11 @@ from .models import Item
 def items(request):
     query = request.GET.get("query",'')
     items = Item.objects.filter(is_sold=False)
-    
+
 #! filters the items queryset based on the query value provided. It will update the items queryset to only include objects whose name field contains the query value in a case-insensitive manner when the query variable is truthy (i.e., not empty or None). If query is empty or None, no filtering will be applied, and the original items queryset will remain unchanged.
+#?Using Q objects gives you the flexibility to create complex queries and apply complex filter conditions in Django's ORM.
     if query:
-        items = items.filter(name__icontains=query)
+        items = items.filter(Q(name__icontains=query) | Q(description__icontains=query))
 
     return render(request, "item/items.html", {
         "items": items,
