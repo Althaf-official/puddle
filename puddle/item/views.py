@@ -24,7 +24,7 @@ def items(request):
         "items": items,
         'query': query,
         'categories': categories,
-        'category_id':int(category_id)
+        'category_id': int(category_id)
         })
 
 
