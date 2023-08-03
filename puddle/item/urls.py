@@ -21,7 +21,7 @@ and <int> indicates that the value passed for this part of the URL should be an 
 This is called a path converter and allows you to capture values from the URL and pass them as arguments to the view function.
 
 The second argument is the view function that will be called when a user accesses a URL that matches the defined pattern. 
-In this case, the view function is views.detail. When a user accesses a URL like yourdomain.com/123, 
+In this case, the view function is views.detail. When a user accesses a URL like your domain.com/123, 
 the detail function in the views.py file will be executed.
 
 The third argument is the optional name parameter, which provides a unique name for the URL pattern. 
@@ -29,6 +29,6 @@ This name can be used to reverse the URL later in the code. For example, in temp
 you can refer to the URL pattern by its name instead of hardcoding the URL.
 
 In this specific example, the URL pattern is '<int:pk>', which means it expects an integer value in the URL. 
-When a user visits a URL like yourdomain.com/123, 
+When a user visits a URL like your domain.com/123, 
 Django will capture the integer value 123 and pass it as an argument pk to the detail view function.
 """
