@@ -4,7 +4,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .forms import NewItemForm, EditItemForm
 from .models import Item
 
-
+#! this function handles an HTTP request and retrieves a list of unsold items from the database. It also extracts the "query" parameter from the URL's query string and includes it in the template's context. The template "item/items.html" will then use this information to display the list of items and the value of the "query" parameter in the rendered webpage
 def items(request):
     query = request.GET.get("query",'')
     items = Item.objects.filter(is_sold=False)
@@ -13,7 +13,6 @@ def items(request):
         "items": items,
         'query': query,
         })
-
 
 
 
