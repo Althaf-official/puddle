@@ -11,6 +11,7 @@ urlpatterns =[
 
 
 
+
 """
 urlpatterns: This is a list that stores all the URL patterns for your web application.
 
