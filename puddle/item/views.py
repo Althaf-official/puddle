@@ -6,9 +6,13 @@ from .models import Item
 
 
 def items(request):
+    query = request.GET.get("query",'')
     items = Item.objects.filter(is_sold=False)
 
-    return render(request, "item/items.html", {"items": items,})
+    return render(request, "item/items.html", {
+        "items": items,
+        'query': query,
+        })
 
 
 
