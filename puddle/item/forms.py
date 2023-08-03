@@ -27,3 +27,23 @@ class NewItemForm(forms.ModelForm): #*subclass of Django's ModelForm class. By i
 
         }
             #!This configuration allows developers to control the look and feel of form fields in their Django web application by customizing the widget attributes for each form field.
+
+
+class EditItemForm(forms.ModelForm): #*subclass of Django's ModelForm class. By inheriting from ModelForm, this form will automatically create form fields based on the model it is associated with.
+    class Meta:#?  This is a nested class within NewItemForm that provides additional configuration options for the form.
+        model = Item #!This line specifies the model that the form is associated with.
+        fields = ("name", "description", "price", "image",'is_sold')#! fields that should be included in the form
+        widgets = {
+            'name': forms.TextInput(attrs={
+                'class': INPUT_CLASSES
+            }),
+            'description': forms.Textarea(attrs={
+                'class': INPUT_CLASSES
+            }),
+            'price': forms.TextInput(attrs={
+                'class': INPUT_CLASSES
+            }),
+            'image': forms.FileInput(attrs={
+                'class': INPUT_CLASSES
+            }),
+        }
