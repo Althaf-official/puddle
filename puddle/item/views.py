@@ -8,6 +8,10 @@ from .models import Item
 def items(request):
     query = request.GET.get("query",'')
     items = Item.objects.filter(is_sold=False)
+    
+#! filters the items queryset based on the query value provided. It will update the items queryset to only include objects whose name field contains the query value in a case-insensitive manner when the query variable is truthy (i.e., not empty or None). If query is empty or None, no filtering will be applied, and the original items queryset will remain unchanged.
+    if query:
+        items = items.filter(name__icontains=query)
 
     return render(request, "item/items.html", {
         "items": items,
