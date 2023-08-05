@@ -19,3 +19,5 @@ class ConversationMessage(models.Model):
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(User, related_name='created_messages',on_delete=models.CASCADE)
+    #!on_delete=models.CASCADE specifies the behavior when the referenced User object is deleted. In this case, when a User is deleted, all associated ConversationMessage objects created by that user will also be deleted.
+    #!Overall, this ConversationMessage model is designed to store individual messages in a conversation, with each message associated with a specific Conversation and a User who created it. The content field stores the message text, and created_at stores the timestamp when the message was created.
