@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 
 from item.models import Item
 
-from .models import ConversationMessage
+from .forms import ConversationMessageForm
 from .models import Conversation
 
 
