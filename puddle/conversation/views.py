@@ -27,16 +27,18 @@ def new_conversation(request, item_pk):
             conversation = Conversation.objects.create(item=item)
             conversation.members.add(request.user)
             conversation.members.add(item.created_by)
-            conversation = form.save()
+            conversation.save()
 
             conversation_message = form.save(commit=False)
             conversation_message.conversation = conversation
             conversation_message.created_by = request.user
             conversation_message.save()
 
-            return redirect("item:detail", pk=item_pk)
+            return redirect('item:detail', pk=item_pk)
     else:
         form = ConversationMessageForm()
 
-    return render(request, "conversation/new.html", {"form": form})
+    return render(request, "conversation/new.html", {
+        "form": form
+    })
 #!this view function is responsible for handling the creation of a new conversation related to a specific item and processing the form data to save the conversation message. It also checks for existing conversations and redirects to the appropriate URL if needed.
