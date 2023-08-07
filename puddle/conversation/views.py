@@ -54,10 +54,12 @@ def inbox(request):
 
     })
     #!this code defines a view function inbox that requires a user to be logged in. It retrieves a list of conversations involving the logged-in user and renders an HTML template to display these conversations in the user's inbox. The @login_required decorator ensures that only authenticated users can access this inbox view.
+
+
 @login_required
-def detail(request,pk):
-    conversation = Conversation.objects.filter(members__in=[request.user.id])
+def detail(request, pk):
+    conversation = Conversation.objects.filter(members__in=[request.user.id]).get(pk=pk)
 
     return render(request,'conversation/detail.html',{
-        "conversation": conversation,
+        'conversation': conversation
     })
