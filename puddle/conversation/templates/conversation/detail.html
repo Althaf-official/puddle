@@ -8,7 +8,7 @@
 
 <div class="space-y-6">
     {% for message in conversation.messages.all %}
-        <div class="p-6 flex bg-grey-100 rounded-xl">
+        <div class="p-6 flex {% if message.created_by == request.user %}bg-blue-500 {% else %} bg-red-500 {% endif %}rounded-xl">
             <div>
                 <p class="mb-4"><strong>{{ message.created_by.username }}</strong> | {{ message.created_at }}</p>
                 <p>{{ message.content }}</p>
