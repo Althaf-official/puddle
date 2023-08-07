@@ -18,7 +18,9 @@ def new_conversation(request, item_pk):
     )
 
     if conversations:
-        pass  # redirect to conversation
+        return redirect('conversation:detail', pk=conversations.first().id)
+        #!the code checks if there are any conversations available (if conversations:), and if so, it redirects the user to the detail view of the first conversation in the list, passing its ID as a parameter in the URL. This is commonly used in web applications to handle redirection based on certain conditions, such as displaying a conversation's details if conversations exist.
+    
 
     if request.method == "POST":
         form = ConversationMessageForm(request.POST)
