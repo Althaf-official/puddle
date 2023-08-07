@@ -10,13 +10,20 @@
             <div class="p-6 flex bg-grey-100 rounded-xl">
                 <div class="pr-6">
                     <img src="{{ conversation.item.image.url }}" alt="" class="w-20 rounded-xl">
-
                 </div>
 
+                <div>
+                    {% for member in conversation.members.all %}
+                        <div>
+                            {% if member != request.user %}
+                                <p class="mb-4"><strong>{{ member.username }}</strong> | {{ conversation.modified_at }}</p>
+                                <p>{{ conversation.item.name }}</p>
+                            {%endif%}
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </a>
     {% endfor %}
-
 </div>
-
 {% endblock %}
