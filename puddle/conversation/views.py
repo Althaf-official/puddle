@@ -66,7 +66,7 @@ def detail(request, pk):
         if form.is_valid():
             conversation_message = form.save(commit=False)
             conversation_message.conversation = conversation
-            conversation_message.create_by = request.user
+            conversation_message.created_by = request.user
             conversation_message.save()
 
             conversation.save()
