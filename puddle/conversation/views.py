@@ -42,3 +42,15 @@ def new_conversation(request, item_pk):
         "form": form
     })
 #!this view function is responsible for handling the creation of a new conversation related to a specific item and processing the form data to save the conversation message. It also checks for existing conversations and redirects to the appropriate URL if needed.
+
+
+@login_required
+def inbox(request):
+    conversations = Conversation.objects.filter(members__in=[request.user.id])
+
+    return render(request, "conversation/inbox.html", {
+        'conversations':conversations,
+
+    })
+    #!this code defines a view function inbox that requires a user to be logged in. It retrieves a list of conversations involving the logged-in user and renders an HTML template to display these conversations in the user's inbox. The @login_required decorator ensures that only authenticated users can access this inbox view.
+    
