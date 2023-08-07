@@ -60,6 +60,25 @@ def inbox(request):
 def detail(request, pk):
     conversation = Conversation.objects.filter(members__in=[request.user.id]).get(pk=pk)
 
+    if request.method == "POST":
+        form = ConversationMessageForm(request.POST)
+
+        if form.is_valid():
+            conversation_message = form.save(commit=False)
+            conversation_message.conversation = conversation
+            conversation_message.create_by = request.user
+            conversation_message.save()
+
+            conversation.save()
+
+            return redirect('conversation:detail', pk=pk)
+    else:
+        form = ConversationMessageForm()
+        #!The overall purpose of this code snippet is to handle the submission of a form containing conversation message data. It validates the form, associates the message with a conversation and user, saves the data to the database, and redirects the user to a conversation detail page.
+
+
+
     return render(request,'conversation/detail.html',{
-        'conversation': conversation
+        'conversation': conversation,
+        'form': form
     })
