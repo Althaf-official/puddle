@@ -50,7 +50,7 @@ def inbox(request):
 
     return render(request, "conversation/inbox.html", {
         'conversations':conversations,
+        #!{'conversations': conversations}: This is the context data that will be passed to the template. The context data includes a dictionary with a key 'conversations' and a value conversations. The value conversations is likely a queryset or list of conversation objects that will be used to populate the template with relevant data.
 
     })
     #!this code defines a view function inbox that requires a user to be logged in. It retrieves a list of conversations involving the logged-in user and renders an HTML template to display these conversations in the user's inbox. The @login_required decorator ensures that only authenticated users can access this inbox view.
-    
