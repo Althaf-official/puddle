@@ -1,1 +1,22 @@
-<h1>hello this is inbox</h1>
+{% extends 'core/base.html' %}
+
+{% block title %}Inbox{% endblock %}
+
+{% block content %}
+<h1 class="mb-6 text-3xl">Inbox</h1>
+<div class="space-y-6">
+    {% for conversation in conversations %}
+        <a href="">
+            <div class="p-6 flex bg-grey-100 rounded-xl">
+                <div class="pr-6">
+                    <img src="{{ conversation.item.image.url }}" alt="" class="w-20 rounded-xl">
+
+                </div>
+
+            </div>
+        </a>
+    {% endfor %}
+
+</div>
+
+{% endblock %}
